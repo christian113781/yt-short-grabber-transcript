@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <div>
+      <h1>Transcript Grabber</h1>
+      <p class="sub">YouTube video → text</p>
+    </div>
+    <label class="switch auto" title="Get the transcript automatically when you open or scroll to a new video">
+      <input id="autoFetch" type="checkbox" checked>
+      <span class="track"><span class="knob"></span></span>
+      Auto
+    </label>
+  </header>
+
+  <!-- Current video card -->
+  <section class="card" id="videoCard" hidden title="Click to get this transcript again">
+    <div class="video">
+      <div class="thumb" id="thumb"></div>
+      <div class="video-info">
+        <div class="label" id="videoLabel">This video</div>
+        <div class="video-title" id="videoTitle">Open a YouTube video</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paste link -->
+  <div class="link-box">
+    <svg viewBox="0 0 24 24" class="link-icon" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="link" type="text" placeholder="Paste any YouTube link…">
+    <button id="fromLink" class="go" title="Get transcript from link" aria-label="Get transcript from link">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div id="status"></div>
+
+  <!-- Result -->
+  <section id="result">
+    <div class="result-head">
+      <div id="title"></div>
+      <div class="meta">
+        <span class="chip" id="lineCount"></span>
+        <span class="chip" id="langChip"></span>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <label class="switch">
+        <input id="timestamps" type="checkbox">
+        <span class="track"><span class="knob"></span></span>
+        Timestamps
+      </label>
+      <select id="lang" hidden title="Language"></select>
+    </div>
+
+    <textarea id="output" readonly placeholder="Transcript will appear here…"></textarea>
+
+    <div class="actions">
+      <button id="copy" class="primary" disabled>Copy</button>
+      <button id="download" disabled>Download .txt</button>
+    </div>
+  </section>
+
+  <script src="transcript.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>
